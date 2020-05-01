@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>submited link</title>
+{% endblock %}
+
+{% block body %}
+<h1>ROck it on!</h1>
+
+{% for url in urls %}
+<p>{{url}}</p>
+{% endfor %}
+
+<br>
+<a class="btn btn-primary" href="/">Return Home</a>
+<a class="btn btn-dark"href="/dl">Download</a>
+{% endblock %}

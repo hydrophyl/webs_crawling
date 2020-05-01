@@ -1,0 +1,43 @@
+from flask import Flask, render_template, request, redirect
+from flask_sqlalchemy import SQLAlchemy
+import requests, os
+from bs4 import BeautifulSoup
+import wget
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
+db = SQLAlchemy(app)
+
+#create class
+class Img_link(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    img_link = db.Column(db.Text, nullable=False)
+
+    def __repr__(self):
+        return "Image nr. " + str(self.id)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/input', methods=['GET', 'POST'])
+def input():
+    link = request.form['link']
+    # new_Img_link = Img_link(img_link=link)
+    # db.session.add(new_Img_link)
+    # db.session.commit()
+    response = requests.get(link)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    img_tags = soup.find_all('a', class_='fileThumb')
+    urls = [img['href'] for img in img_tags]
+    list_of_images = []
+    for url in urls:
+        list_of_images.append(url)
+    return render_template('input.html', urls = list_of_images)
+
+@app.route('/dl')
+def dl():
+    return render_template('download.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
