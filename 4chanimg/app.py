@@ -39,11 +39,19 @@ def input():
     #     wget.download('http://' + list_of_images[i])
     return render_template('input.html', link=link, urls = list_of_images)
 
-@app.route('/download')
+@app.route('/gallery')
 def dl():
     os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
     files = os.listdir()
-    return render_template('download.html', files = files)
+    return render_template('gallery.html', files = files)
+
+@app.route('/empty')
+def empty():
+    os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
+    files = os.listdir()
+    for file in files:
+        os.remove(file)
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True)
