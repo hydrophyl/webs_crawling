@@ -8,10 +8,10 @@
 <h1>ROck it on!</h1>
 
 {% for url in urls %}
-<p>{{url}}</p>
+<a href="{{'http:' + url}}">{{'http:' + url}}</a>
 {% endfor %}
 
 <br>
 <a class="btn btn-primary" href="/">Return Home</a>
-<a class="btn btn-dark"href="/dl">Download</a>
+<a class="btn btn-dark"href="/download">Gallery</a>
 {% endblock %}

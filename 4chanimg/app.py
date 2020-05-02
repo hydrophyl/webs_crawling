@@ -33,11 +33,17 @@ def input():
     list_of_images = []
     for url in urls:
         list_of_images.append(url)
-    return render_template('input.html', urls = list_of_images)
+    # os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
+    # for i in range(0,len(list_of_images)):
+    #     print(list_of_images[i])
+    #     wget.download('http://' + list_of_images[i])
+    return render_template('input.html', link=link, urls = list_of_images)
 
-@app.route('/dl')
+@app.route('/download')
 def dl():
-    return render_template('download.html')
+    os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
+    files = os.listdir()
+    return render_template('download.html', files = files)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -2,3 +2,8 @@ body{
   font-family: sans-serif;
   color: indianred;
 }
+
+img{
+  border: 0;
+  max-width: 100%;
+}

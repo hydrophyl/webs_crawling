@@ -6,5 +6,9 @@
 
 {% block body %}
 <h1>Images Gallery</h1>
-<p>{{link}}</p>
+
+{% for file in files %}
+<p>Pic: {{file}}</p>
+<img src="/static/images/{{file}}" alt="">
+{% endfor %}
 {% endblock %}
