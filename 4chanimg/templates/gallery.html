@@ -5,10 +5,18 @@
 {% endblock %}
 
 {% block body %}
-<h1>Images Gallery</h1>
+<div class="container">
+  <br>
+  <div class="d-flex justify-content-between">
+    <h1 class="text-danger">Images Gallery</h1>
+    <a class="btn btn-danger pt-3" href="/gallery/empty">Empty Gallery</a>
+  </div>
 
-{% for file in files %}
-<p>Pic: {{file}}</p>
-<img src="/static/images/{{file}}" alt="">
-{% endfor %}
+  {% for file in files %}
+  <br>
+  <img src="/static/images/{{file}}" alt="">
+  <p>Pic: {{file}}</p>
+  {% endfor %}
+</div>
+
 {% endblock %}

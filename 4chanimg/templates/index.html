@@ -9,11 +9,17 @@
   <p class="lead">This is a website to download images from 4chan.org webpage</p>
   <hr class="my-4">
   <p>Insert link to download images or click on Gallery to go to images gallery</p>
-  <form class="form-inline" action="/input" method="POST">
-    <input class="form-control mr-2" type="text" name="link" id="link" placeholder="Insert link">
-    <input class="btn btn-outline-primary my-2" type="submit" value="Download">
+  <form class="form-inline mt-5" action="/input" method="POST">
+    <input class="form-control" type="text" name="link" id="link" placeholder="Insert link">
+    <input class="btn btn-outline-info ml-2" type="submit" value="Download" onclick="showup()">
     <a class="btn btn-outline-dark ml-2"href="/gallery">Gallery</a>
+    <div class="ml-2" id="loader"></div>
   </form>
 </div>
 
+<script>
+function showup() {
+  document.getElementById("loader").innerHTML = "Please wait! Downloading....";
+}
+</script>
 {% endblock %}

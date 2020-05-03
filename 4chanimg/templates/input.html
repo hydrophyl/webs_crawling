@@ -5,15 +5,18 @@
 {% endblock %}
 
 {% block body %}
-<h2>List of images urls</h2>
+<div class="container">
+  <br>
+  <h2 class="text-info">List of images urls</h2>
+  {% for url in urls %}
+  <small><a href="{{'http:' + url}}">{{'http:' + url}}</a></small><br>
+  {% endfor %}
+  <hr>
+  <p>Click Home to return to main page or go to images gallery</p>
+  <a class="btn btn-primary" href="/">Return Home</a>
+  <a class="btn btn-dark"href="/gallery">Gallery</a>
+  <br>
+  <hr>
+</div>
 
-{% for url in urls %}
-<a href="{{'http:' + url}}">{{'http:' + url}}</a>
-<br>
-{% endfor %}
-
-<p>Click Home to return to main page or go to images gallery</p>
-<br>
-<a class="btn btn-primary" href="/">Return Home</a>
-<a class="btn btn-dark"href="/gallery">Gallery</a>
 {% endblock %}

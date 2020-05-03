@@ -45,7 +45,7 @@ def dl():
     files = os.listdir()
     return render_template('gallery.html', files = files)
 
-@app.route('/empty')
+@app.route('/gallery/empty')
 def empty():
     os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
     files = os.listdir()
