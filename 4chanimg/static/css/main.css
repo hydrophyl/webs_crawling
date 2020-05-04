@@ -15,3 +15,7 @@ img{
 .navbar-nav *{
   margin-right: 10px;
 }
+
+.spinner-border{
+  display: none;
+}

@@ -35,8 +35,8 @@ def input():
         list_of_images.append(url)
     # os.chdir('C:/Users/Admin/Documents/webs_crawling/4chanimg/static/images')
     # for i in range(0,len(list_of_images)):
-    #     print(list_of_images[i])
-    #     wget.download('http://' + list_of_images[i])
+    #      print(list_of_images[i])
+    #      wget.download('http://' + list_of_images[i])
     return render_template('input.html', link=link, urls = list_of_images)
 
 @app.route('/gallery')
