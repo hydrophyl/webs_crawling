@@ -9,8 +9,6 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///img.db'
 db = SQLAlchemy(app)
 
-# create class
-
 
 class Img_link(db.Model):
     id = db.Column(db.Integer, primary_key=True)
